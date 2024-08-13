@@ -1,0 +1,120 @@
+<div class="flex items-center justify-center h-screen">
+  <div class="h-[580px] flex bg-white rounded-lg border border-white">
+    <div
+      class="w-2/5 p-8 rounded-l-lg bg-[#ddf6fc] flex flex-col justify-between"
+    >
+      <div>
+        <img src="/assets/images/logo.svg" alt="logo" />
+      </div>
+      <div>
+        <img src="/assets/images/Illustrator.svg" alt="illustrator" />
+      </div>
+    </div>
+    <div class="w-3/5 p-6">
+      @if(!userLogin) {
+      <div
+        class="flex flex-col lg:w-[500px] justify-center lg:pl-12 lg:pr-20 h-full"
+      >
+        <div class="my-4">
+          <h2 class="text-lg font-bold text-gray-700">
+            Welcome Back, {{ userDetails?.name }}
+          </h2>
+        </div>
+        <div>
+          <form [formGroup]="loginOrSignupForm">
+            @if(userDetails.email) {
+            <div class="flex flex-col">
+              <label for="email" class="text-sm font-medium primary-color"
+                >Enter Email ID</label
+              >
+              <input
+                name="email"
+                type="text"
+                class="inputs-bg rounded-full cursor-not-allowed text-sm text-gray-500 font-medium px-2 py-3 placeholder:text-xs placeholder:pl-2 mt-2 outline-none border border-white focus:border-[#0069D1]"
+                placeholder="Enter Email ID"
+                [formControl]="email"
+              />
+              <p
+                [hidden]="email.valid || email.untouched"
+                class="text-xs font-medium text-red-500"
+              >
+                Enter Correct Email
+              </p>
+            </div>
+            } @else {
+            <div class="flex flex-col">
+              <label class="text-sm font-medium primary-color" for="phone"
+                >Enter Mobile No.</label
+              >
+              <input
+                name="phone"
+                type="number"
+                class="inputs-bg cursor-not-allowed rounded-full text-sm text-gray-500 font-medium px-2 py-3 placeholder:text-xs placeholder:pl-2 mt-2 outline-none border border-white focus:border-[#0069D1]"
+                placeholder="91+"
+                [formControl]="phone"
+              />
+              <p
+                [hidden]="phone.valid || phone.untouched"
+                class="text-xs font-medium text-red-500"
+              >
+                Number should be 10 digits
+              </p>
+            </div>
+            }
+
+            <div class="flex flex-col mt-4">
+              <label class="text-sm w-80 font-medium primary-color" for="phone"
+                >Enter Password</label
+              >
+              <input
+                name="password"
+                type="password"
+                class="inputs-bg rounded-full text-sm text-gray-500 font-medium px-2 py-3 placeholder:text-xs placeholder:pl-2 mt-2 outline-none border border-white focus:border-[#0069D1]"
+                placeholder="Enter Your Password"
+                [formControl]="password"
+              />
+              <p
+                [hidden]="password.valid || password.untouched"
+                class="text-xs font-medium text-red-500"
+              >
+                password should be atleast 6 characters
+              </p>
+            </div>
+            @if(showError) {
+            <p class="text-xs font-medium text-red-500 mt-2">
+              please enter correct password
+            </p>
+            }
+
+            <button
+              class="bg-[#0069D1] w-full text-white py-2 rounded-full mt-8"
+              type="submit"
+              (click)="login()"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+      } @else {
+      <div class="flex gap-y-8 flex-col justify-center items-center h-full">
+        <div
+          class="bg-green-400 flex items-center justify-center rounded-full w-40 h-40"
+        >
+          <img
+            class="w-16 h-16 text-white"
+            src="/assets/images/success.svg"
+            alt="success"
+          />
+        </div>
+        <div class="flex flex-col items-center gap-x-2">
+          <p class="text-lg font-semibold">Logging you in....</p>
+          <p class="text-sm text-gray-400">
+            Kindly wait as we are curating the data accordingly.
+          </p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

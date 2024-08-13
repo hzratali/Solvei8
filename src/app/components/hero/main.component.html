@@ -1,0 +1,81 @@
+<div class="flex items-center justify-center h-screen">
+  <div class="h-[580px] flex bg-white rounded-lg border border-white">
+    <div
+      class="w-2/5 p-8 rounded-l-lg bg-[#e3f8fe] flex flex-col justify-between"
+    >
+      <div>
+        <img src="/assets/images/logo.svg" alt="logo" />
+      </div>
+      <div>
+        <img src="/assets/images/Illustrator.svg" alt="illustrator" />
+      </div>
+    </div>
+    <div class="w-3/5 p-6">
+      <div
+        class="flex flex-col lg:w-[500px] justify-center lg:pl-12 lg:pr-20 h-full"
+      >
+        <div class="my-4">
+          <h2 class="text-lg font-bold text-gray-700">Welcome</h2>
+        </div>
+        <div>
+          <form [formGroup]="loginOrSignupForm">
+            <div class="flex flex-col">
+              <label for="email" class="text-sm font-medium primary-color"
+                >Enter Email ID</label
+              >
+              <input
+                name="email"
+                type="text"
+                class="inputs-bg rounded-full text-sm text-gray-500 font-medium px-2 py-3 placeholder:text-xs placeholder:pl-2 mt-2 outline-none border border-white focus:border-[#0069D1]"
+                placeholder="Enter Email ID"
+                [formControl]="email"
+              />
+              <p
+                [hidden]="email.valid || email.untouched"
+                class="text-xs font-medium text-red-500"
+              >
+                Enter Correct Email
+              </p>
+            </div>
+            <div class="mt-4">
+              <span class="text-base font-medium text-gray-400">(OR)</span>
+            </div>
+
+            <div class="flex flex-col mt-4">
+              <label class="text-sm w-80 font-medium primary-color" for="phone"
+                >Enter Mobile No.</label
+              >
+              <input
+                name="phone"
+                type="number"
+                class="inputs-bg rounded-full text-sm text-gray-500 font-medium px-2 py-3 placeholder:text-xs placeholder:pl-2 mt-2 outline-none border border-white focus:border-[#0069D1]"
+                placeholder="91+"
+                [formControl]="phone"
+              />
+              <p
+                [hidden]="phone.valid || phone.untouched"
+                class="text-xs font-medium text-red-500"
+              >
+                Number should be 10 digits
+              </p>
+            </div>
+
+            @if(showError) {
+            <p class="text-xs font-medium text-red-500 mt-2">
+              please enter email or phone number
+            </p>
+            }
+
+            <button
+              class="bg-[#0069D1] w-full text-white py-2 rounded-full mt-8"
+              type="submit"
+              (click)="nextStep()"
+            >
+              Next
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
