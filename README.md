@@ -1,6 +1,4 @@
-# Assignment - Trello-Style Task Management Application
-
-## Title: Create an Angular web application for signing in / logging-in the user. The designs for the same can be found in the following link. [Designs for Assignment](https://www.figma.com/design/LVmO8JvoK5nPAHaZtVK5Xt/Dev-Interview-Reference)
+# Title: Create an Angular web application for signing in / logging-in the user. The designs for the same can be found in the following link. [Designs for Assignment](https://www.figma.com/design/LVmO8JvoK5nPAHaZtVK5Xt/Dev-Interview-Reference)
 
 ### Details:
 
